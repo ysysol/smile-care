@@ -18,9 +18,11 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Dashboard from '../screens/dashboard';
 import Contactus from '../screens/contactus';  // example for another page
+import  '../component/sidebar.css';
 
 const drawerWidth = 240;
 
@@ -61,14 +63,16 @@ const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })<AppBarProps>(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(['width', 'margin'], {
+  transition: theme.transitions.create(['width', 'margin', 'background-color'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
+  // backgroundColor: open ? '#2E3B55' : '#1C2538',
+  backgroundColor: open ? '#87c2c2' : '#659f9f',
   ...(open && {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
+    transition: theme.transitions.create(['width', 'margin', 'background-color'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -129,7 +133,7 @@ const MiniDrawer = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            Smile Care Portal
           </Typography>
         </Toolbar>
       </AppBar>
@@ -157,7 +161,7 @@ const MiniDrawer = () => {
                   justifyContent: 'center',
                 }}
               >
-                <MailIcon />
+                <DashboardIcon />
               </ListItemIcon>
               <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
@@ -188,8 +192,8 @@ const MiniDrawer = () => {
         <Divider />
       </Drawer>
       <Box>
-        {menudata == "Dashboard" && <Dashboard />}
-        {menudata == "Contactus" && <Contactus />}
+        {menudata === "Dashboard" && <Dashboard />}
+        {menudata === "Contactus" && <Contactus />}
       </Box>
     </Box>
   );
