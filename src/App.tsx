@@ -5,17 +5,15 @@ import Sidebar from "./components/sidebar";
 import Dashboard from "./screens/dashboard";
 import Contact from "./screens/contactus";
 import Subscription from "./screens/subscription";
-
+import { BrowserRouter as Router } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Sidebar />
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/subscription" element={<Subscription />} />
-        </Routes>
+        
+       
+            <Sidebar />
+       
       </BrowserRouter>
     </div>
   );

@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useState } from "react";
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -17,19 +16,18 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import SettingsIcon from "@mui/icons-material/Settings";
-import DashboardIcon from "@mui/icons-material/Dashboard";
+
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useNavigate,
 } from "react-router-dom";
-import Dashboard from "../screens/dashboard";
-import Contactus from "../screens/contactus";
 import PrimarySearchAppBar from "./PrimarySearchAppBar"; // example for another page
 import "./sidebar.css";
+import AppRoutes from "../AppRoutes";
+import routes from "../routes";
 
 const drawerWidth = 240;
 
@@ -123,9 +121,8 @@ const MiniDrawer = () => {
     setOpen(false);
   };
 
-  const handleMenuClick = (menu: string) => {
-    console.log(`Menu item clicked: ${menu}`);
-    navigate(`/${menu.toLowerCase()}`);
+  const handleMenuClick = (path: string) => {
+    navigate(path);
   };
 
   const SettingsButton = () => (
@@ -151,15 +148,16 @@ const MiniDrawer = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography 
-          variant="h6" 
-          noWrap 
-          component="div"
-          sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ display: { xs: "none", sm: "block" } }}
+          >
             Smile Care Portal
           </Typography>
-         
-          <Box sx={{ flexGrow: 12 }} />
+
+          <Box sx={{ flexGrow: 1 }} />
           <SettingsButton />
           <PrimarySearchAppBar />
         </Toolbar>
@@ -176,61 +174,38 @@ const MiniDrawer = () => {
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem disablePadding sx={{ display: "block" }}>
-            <ListItemButton
-              onClick={() => setMenudata("Dashboard")}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+          {routes.map((route, index) => (
+            <ListItem key={index} disablePadding sx={{ display: "block" }}>
+              <ListItemButton
+                onClick={() => handleMenuClick(route.path)}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary="Dashboard"
-                sx={{ opacity: open ? 1 : 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
-          {/* Add more ListItem for other menu items */}
-          <ListItem disablePadding sx={{ display: "block" }}>
-            <ListItemButton
-              onClick={() => setMenudata("Contactus")}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                <MailIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary="Contactus"
-                sx={{ opacity: open ? 1 : 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  {route.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={route.name}
+                  sx={{ opacity: open ? 1 : 0 }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
         <Divider />
       </Drawer>
-      <Box>
-        {menudata === "Dashboard" && <Dashboard />}
-        {menudata === "Contactus" && <Contactus />}
+      <Box component="main" sx={{ mt: -10 }}>
+        <DrawerHeader />
+        <AppRoutes />
       </Box>
     </Box>
   );

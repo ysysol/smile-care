@@ -123,7 +123,7 @@ const PrimarySearchAppBar = () => {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+          <Badge badgeContent={4} color="secondary">
             <MailIcon />
           </Badge>
         </IconButton>
@@ -135,7 +135,7 @@ const PrimarySearchAppBar = () => {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
+          <Badge badgeContent={17} color="secondary">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -158,12 +158,10 @@ const PrimarySearchAppBar = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Toolbar>     
-      
-        
+      <Toolbar>
         <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
           <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-            <Badge badgeContent={4} color="default">
+            <Badge badgeContent={4} color="secondary">
               <MailIcon />
             </Badge>
           </IconButton>
@@ -172,7 +170,7 @@ const PrimarySearchAppBar = () => {
             aria-label="show 17 new notifications"
             color="inherit"
           >
-            <Badge badgeContent={17} color="default">
+            <Badge badgeContent={17} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>
