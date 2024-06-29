@@ -158,8 +158,8 @@ const MiniDrawer = () => {
           sx={{ display: { xs: 'none', sm: 'block' } }}>
             Smile Care Portal
           </Typography>
-          <Box sx={{ flexGrow: 1 }} />
-          
+         
+          <Box sx={{ flexGrow: 12 }} />
           <SettingsButton />
           <PrimarySearchAppBar />
         </Toolbar>
