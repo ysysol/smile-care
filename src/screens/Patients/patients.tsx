@@ -1,10 +1,9 @@
-import MiniDrawer from "../components/sidebar";
 import { Box, Container } from "@mui/material";
-const Subscription = () => {
+const Patients = () => {
   return (
     <Box sx={{ display: "flex"}}>      
       <Container fixed>
-        <h1>Subscription</h1>
+        <h1>Patients</h1>
         <p>
           a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. The point of
@@ -20,4 +19,4 @@ const Subscription = () => {
     </Box>
   );
 };
-export default Subscription;
+export default Patients;

@@ -12,7 +12,7 @@ const Contactus=()=>{
     //     </Container>
     // </Box>
 
-    <Box sx={{ display: "flex", marginTop: "100px" }}>
+    <Box sx={{ display: "flex"}}>
     <Container fixed>
       <h1>Contact Us</h1>
       <p>a long established fact that a reader will be</p>
