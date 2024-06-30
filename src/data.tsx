@@ -6,7 +6,7 @@ import PhonePausedIcon from '@mui/icons-material/PhonePaused';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 export default function(){
     const data=[
-        {
+        {// ==============================|| DASHBOARD MENU ITEMS ||============================== //
             id:0,
             label:"Dashboard",
             img:<DashboardIcon/>,
