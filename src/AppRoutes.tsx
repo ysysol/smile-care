@@ -3,7 +3,7 @@ import routes from "./routes";
 
 const AppRoutes = () => {
   return (
-    <Routes>    
+    <Routes>
       {routes.map((route, index) => (
         <Route key={index} path={route.path} element={<route.component />} />
       ))}

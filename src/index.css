@@ -1,3 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+:root {
+  --blue: #1677ff;
+  --white: #ffffff;
+  --off-white: #FCFCFC;
+  --light-grayish-white:#F5F5F5;
+  --error: #ff4d4f;
+  --black: #000;
+  --font-sans: 'Source Sans Pro', sans-serif;
+
+  --light-black: rgba(0, 0, 0, 0.88);
+
+}
+/* body {
+  background-color: var(--light-grayish-white);
+  font-family: var(--font-sans);
+  text-transform: capitalize;
+} */
 body {
   background-color: rgb(250, 251, 251) !important;
   margin: 0;
@@ -6,7 +25,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  text-transform: capitalize;
+
 }
 
 code {

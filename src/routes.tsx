@@ -5,10 +5,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import MailIcon from '@mui/icons-material/Mail';
 import Dashboard from './screens/dashboard';
 import Contactus from './screens/contactus';
-import Subscription from './screens/subscription';
 import Patients from './screens/Patients/patients';
-
-
 import Notifications from './screens/Notifications/notifications';
 import Dentists from './screens/Dentists/dentists';
 import Medications from './screens/Medications/medications';
@@ -16,8 +13,6 @@ import Treatments from './screens/Treatments/treatments';
 import Invoices from './screens/Invoices/invoices';
 import Appointments from './screens/Appointments/appointments';
 import Patient from './screens/Profile/patient';
-
-
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import MedicalInformationOutlinedIcon from '@mui/icons-material/MedicalInformationOutlined';
 import VaccinesOutlinedIcon from '@mui/icons-material/VaccinesOutlined';
@@ -44,31 +39,25 @@ const routes: Route[] = [
     name: 'Contact Us',
     icon: <MailIcon color="disabled" fontSize="small"/>,
     component: Contactus,
-  }, 
-  {
-    path: '/subscription',
-    name: 'Subscription',
-    icon: <MailIcon color="disabled" fontSize="small"/>,
-    component: Subscription,
-  }, 
+  },
   {
     path: '/Patients',
     name: 'Patients',
     icon: <PeopleOutlineRoundedIcon color="disabled" fontSize="small"/>,
     component: Patients,
-  }, 
+  },
   {
     path: '/dentists',
     name: 'Dentists',
     icon: <PeopleAltRoundedIcon color="disabled" fontSize="small"/>,
     component: Dentists,
-  },   
+  },
   {
     path: '/appointments',
     name: 'Appointments',
     icon: <FamilyRestroomSharpIcon color="disabled" fontSize="small"/>,
     component: Appointments,
-  }, 
+  },
   {
     path: '/medications',
     name: 'Medications',
@@ -80,7 +69,7 @@ const routes: Route[] = [
     name: 'Treatments',
     icon: <VaccinesOutlinedIcon color="disabled" fontSize="small"/>,
     component: Treatments,
-  }, 
+  },
   {
     path: '/notifications',
     name: 'Notifications',

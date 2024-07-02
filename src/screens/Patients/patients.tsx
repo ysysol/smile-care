@@ -35,17 +35,9 @@ import {
 import patientsData from "../../data/patients.json";
 import AddNewPatient from "../../components/AddNewPatient";
 import styled from 'styled-components';
-interface Patient {
-  firstName: string;
-  lastName: string;
-  age: number;
-  dob: string;
-  lastVisited: string;
-  gender: string;
-  condition: string;
-  diagnosis: string;
-  status: string;
-}
+import { Patient } from './../../types';
+
+
 
 const Patients = () => {
   const [patients, setPatients] = useState<Patient[]>(patientsData);
@@ -161,14 +153,14 @@ const Patients = () => {
   const emptyRows =
     rowsPerPage -
     Math.min(rowsPerPage, filteredPatients.length - page * rowsPerPage);
-    
+
   const ProfileContainer = styled(Box)`
     padding: 20px;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    max-width: 1700px;    
-    margin: 20px auto; 
+    max-width: 1700px;
+    margin: 20px auto;
   `;
   return (
     <Box sx={{ display: "flex" }}>

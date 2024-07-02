@@ -1,7 +1,7 @@
 // src/Odontography.tsx
 import React from 'react';
 import styled from 'styled-components';
-
+import myphoto from "../../assets/images/1.png";
 const OdontographyContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -27,7 +27,7 @@ const Odontography: React.FC<OdontographyProps> = ({ onToothClick }) => {
   return (
     <OdontographyContainer>
       <Image
-        src="/path/to/odontography-image.png"
+        src={myphoto}
         alt="Odontography"
         useMap="#odontography-map"
       />

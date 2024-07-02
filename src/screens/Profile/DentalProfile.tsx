@@ -1,9 +1,9 @@
 // src/DentalProfile.tsx
-import React, { useState } from 'react';
-import { Box, Tabs, Tab, Drawer, Typography, Button } from '@mui/material';
-import styled from 'styled-components';
-import Odontography from './Odontography';
-import TreatmentDrawer from './TreatmentDrawer';
+import React, { useState } from "react";
+import { Box, Tabs, Tab, Drawer, Typography, Button } from "@mui/material";
+import styled from "styled-components";
+import Odontography from "./odontography";
+import TreatmentDrawer from "./treatmentDrawer";
 
 const ProfileContainer = styled(Box)`
   padding: 20px;
@@ -51,9 +51,11 @@ const DentalProfile: React.FC = () => {
         <StyledButton variant="contained" onClick={openDrawer}>
           Add Treatment
         </StyledButton>
-        <Odontography onToothClick={function (toothNumber: number): void {
-                  throw new Error('Function not implemented.');
-              } } />
+        <Odontography
+          onToothClick={function (toothNumber: number): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
       </Box>
       <Drawer anchor="right" open={drawerOpen} onClose={closeDrawer}>
         <TreatmentDrawer closeDrawer={closeDrawer} toothNumber={null} />

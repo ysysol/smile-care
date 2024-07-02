@@ -4,11 +4,12 @@ import { Box, Drawer, Typography, Tabs, Tab, Grid } from "@mui/material";
 import styled from "styled-components";
 import GlobalStyle from "../Profile/profileStyles";
 
-import TreatmentDrawer from "../Profile/TreatmentDrawer";
-import SummaryTable from "../Profile/SummaryTable";
+import TreatmentDrawer from "./treatmentDrawer";
+import SummaryTable from "./summaryTable";
 import CareplanTypeDropdown from "../../components/CareplanTypeDropdown";
 import TreatmentButtons from "../../components/TreatmentButtons";
 import myimage from "../../assets/images/1.png";
+import Odontography from "./odontography";
 
 const ProfileContainer = styled(Box)`
   padding: 20px;
@@ -65,16 +66,18 @@ const Patient: React.FC = () => {
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
                 borderRadius: 4,
               }}
-            >              
+            >
               {/* Add Treatment buttons and components here */}
               <Box component="img" alt="Placeholder Image" src={myimage} />
             </Box>
           </Grid>
           <Grid item xs={6}>
-            <Box  sx={{
-               p:4
-              }}>
-             <Typography variant="h6">Treatment</Typography>
+            <Box
+              sx={{
+                p: 4,
+              }}
+            >
+              <Typography variant="h6">Treatment</Typography>
               {/* Add Careplan Type components here */}
               <CareplanTypeDropdown />
               <TreatmentButtons />
