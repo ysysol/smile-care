@@ -220,6 +220,7 @@ const MiniDrawer = () => {
               </ListItemButton>
             </ListItem>
  {dividerIndices.includes(index) && <Divider />}
+ 
  </React.Fragment>
 
           ))}

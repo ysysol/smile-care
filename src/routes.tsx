@@ -15,6 +15,7 @@ import Medications from './screens/Medications/medications';
 import Treatments from './screens/Treatments/treatments';
 import Invoices from './screens/Invoices/invoices';
 import Appointments from './screens/Appointments/appointments';
+import Patient from './screens/Profile/patient';
 
 
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
@@ -22,6 +23,8 @@ import MedicalInformationOutlinedIcon from '@mui/icons-material/MedicalInformati
 import VaccinesOutlinedIcon from '@mui/icons-material/VaccinesOutlined';
 import FileCopyOutlinedIcon from '@mui/icons-material/FileCopyOutlined';
 import FamilyRestroomSharpIcon from '@mui/icons-material/FamilyRestroomSharp';
+import PeopleOutlineRoundedIcon from '@mui/icons-material/PeopleOutlineRounded';
+import PeopleAltRoundedIcon from '@mui/icons-material/PeopleAltRounded';
 interface Route {
   path: string;
   name: string;
@@ -51,13 +54,13 @@ const routes: Route[] = [
   {
     path: '/Patients',
     name: 'Patients',
-    icon: <FamilyRestroomSharpIcon color="disabled" fontSize="small"/>,
+    icon: <PeopleOutlineRoundedIcon color="disabled" fontSize="small"/>,
     component: Patients,
   }, 
   {
     path: '/dentists',
     name: 'Dentists',
-    icon: <FamilyRestroomSharpIcon color="disabled" fontSize="small"/>,
+    icon: <PeopleAltRoundedIcon color="disabled" fontSize="small"/>,
     component: Dentists,
   },   
   {
@@ -89,6 +92,12 @@ const routes: Route[] = [
     name: 'Invoices',
     icon: <FileCopyOutlinedIcon color="disabled" fontSize="small"/>,
     component: Invoices,
+  },
+  {
+    path: '/profile/patient',
+    name: 'Patient',
+    icon: <FileCopyOutlinedIcon color="disabled" fontSize="small"/>,
+    component: Patient,
   },
 ];
 
