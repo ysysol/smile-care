@@ -4,7 +4,7 @@ const Dashboard = () => {
     <Box sx={{ display: "flex" }}>
       <Container fixed>
         <h1>Dashboad</h1>
-        <p>a long established fact that a reader will be</p>
+        <p>This paragraph a long established fact that a reader will be</p>
       </Container>
     </Box>
   );
