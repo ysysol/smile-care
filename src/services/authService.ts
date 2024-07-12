@@ -62,7 +62,7 @@ interface User {
   
   export const login = (email: string, password: string): Promise<void> => {
     return new Promise((resolve, reject) => {
-      if (email === '654' && password === '654') {
+      if (email === 'admin' && password === 'admin') {
         localStorage.setItem('user', JSON.stringify({ token: 'mock-token' }));
         resolve();
       } else {
