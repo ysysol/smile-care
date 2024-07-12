@@ -1,0 +1,20 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Keys : ChangeRequest : : Type Feature : Todo : Dev : Project Smile-Care : Assignee : Murat : pation profile 
+
+2 improve sidebar menu
+3 improve menu icons
+4 fixing topbar
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Keys : ChangeRequest : : Type Bug : Todo : Dev : Project Smile-Care : Assignees : Murat Hossein : creating dental chart for treatment
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Keys : ChangeRequest : : Type Bug : Todo : Dev : Project Smile-Care : Assignees : Murat Hossein : Hosting website
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Keys : ChangeRequest : Type Bug : Todo : Dev : Project Smile-Care : Assignees : Ghazi : private repository
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Keys : ChangeRequest : : Type Bug : Todo : Dev : Project Smile-Care : Assignees : Demo on local system
+
+contact list of clients
