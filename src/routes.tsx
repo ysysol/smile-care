@@ -11,6 +11,7 @@ import Dentists from './screens/Dentists/dentists';
 import Medications from './screens/Medications/medications';
 import Treatments from './screens/Treatments/treatments';
 import Invoices from './screens/Invoices/invoices';
+import Teeth from './screens/TeethChart/teethChart';
 import Appointments from './screens/Appointments/appointments';
 import Patient from './screens/Profile/patient';
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
@@ -20,18 +21,15 @@ import FileCopyOutlinedIcon from '@mui/icons-material/FileCopyOutlined';
 import FamilyRestroomSharpIcon from '@mui/icons-material/FamilyRestroomSharp';
 import PeopleOutlineRoundedIcon from '@mui/icons-material/PeopleOutlineRounded';
 import PeopleAltRoundedIcon from '@mui/icons-material/PeopleAltRounded';
-interface Route {
-  path: string;
-  name: string;
-  icon?: React.ReactNode; // Use React.ReactElement for icons
-  component: React.ComponentType;
-}
+import PatientsIcon from './assets/images/noun-patient-6255552.svg';
+import DashboardMedicalIcons from './assets/images/medical-device-icon.svg';
+import { Route } from './types';
 
 const routes: Route[] = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    icon: <DashboardIcon color="disabled" fontSize="small" />,
+    icon: <img width="28" height="28" src={DashboardMedicalIcons} alt="Home Icon" />, //<DashboardIcon color="disabled" fontSize="small" />,
     component: Dashboard,
   },
   {
@@ -43,7 +41,7 @@ const routes: Route[] = [
   {
     path: '/Patients',
     name: 'Patients',
-    icon: <PeopleOutlineRoundedIcon color="disabled" fontSize="small"/>,
+    icon: <img width="28" height="28" src={PatientsIcon} alt="Home Icon" />,
     component: Patients,
   },
   {
@@ -87,6 +85,12 @@ const routes: Route[] = [
     name: 'Patient',
     icon: <FileCopyOutlinedIcon color="disabled" fontSize="small"/>,
     component: Patient,
+  },
+  {
+    path: '/teethchart/teethChart',
+    name: 'TeethChart',
+    icon: <FileCopyOutlinedIcon color="disabled" fontSize="small"/>,
+    component: Teeth,
   },
 ];
 

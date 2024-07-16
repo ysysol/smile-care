@@ -45,10 +45,20 @@ const Medications: React.FC = () => {
   };
 
   return (
+
     <div style={{ backgroundColor: '#f0f2f5', height: '100vh' }}>
-      <AppBar position="static" color="default">
-        <Toolbar>
-          <Avatar alt="Julia Smith" src="path/to/avatar.jpg" />
+
+<Box   sx={{
+              width: 1100,
+              height: 200,
+              borderRadius: 2,
+              bgcolor: 'white',
+              margin: 5,
+              '&:hover': {
+                bgcolor: 'primary.dark',
+              },
+            }} >
+<Avatar alt="Julia Smith" src="path/to/avatar.jpg" />
           <Box ml={2}>
             <Typography variant="h6">Julia Smith</Typography>
             <Typography variant="body2">Active, 01.28.94</Typography>
@@ -65,8 +75,10 @@ const Medications: React.FC = () => {
             <IconButton><Email /></IconButton>
             <IconButton><CalendarToday /></IconButton>
           </Box>
-        </Toolbar>
-      </AppBar>
+              </Box>
+
+
+
       <Box display="flex">
 
         <Box flex={1}>

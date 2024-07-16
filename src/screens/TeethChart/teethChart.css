@@ -1,0 +1,20 @@
+.element {
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 1);
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16),
+0px 3px 6px 0px rgba(0,0,0,0.23);
+  }
+
+
+  .css-1pqm26d-MuiAvatar-img {
+    width: 80%;
+    height: 80%;
+    text-align: center;
+    object-fit: cover;
+    color: transparent;
+    text-indent: 10000px;
+
+}

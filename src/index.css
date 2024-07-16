@@ -18,7 +18,7 @@
   text-transform: capitalize;
 } */
 body {
-  background-color: rgb(250, 251, 251) !important;
+   background-color: rgb(250, 251, 251) !important; /* rgb(218, 224, 235) !important; */
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

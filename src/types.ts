@@ -116,5 +116,9 @@ export interface Appointment {
   };
   isForDependent?: boolean;
 }
-
-
+export interface Route {
+  path: string;
+  name: string;
+  icon?: React.ReactNode; // Use React.ReactElement for icons
+  component: React.ComponentType;
+}
