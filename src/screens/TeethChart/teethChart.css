@@ -10,8 +10,8 @@
 
 
   .css-1pqm26d-MuiAvatar-img {
-    width: 80%;
-    height: 80%;
+    width: 70%!important;
+    height: 60%!important;
     text-align: center;
     object-fit: cover;
     color: transparent;

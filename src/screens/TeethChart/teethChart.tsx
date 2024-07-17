@@ -63,18 +63,18 @@ const theme = createTheme();
 const HeaderAvatar = styled(Box)({
   display: "flex",
   alignItems: "center",
-  paddingTop: theme.spacing(2),
-  paddingBottom: theme.spacing(2),
   width: "120%",
   backgroundColor: "#fff",
   // borderBottom: "1px solid #ddd",
-  borderRadius: "62px", // Added for rounded corners
+  borderRadius: "18px", // Added for rounded corners
   marginBottom: theme.spacing(2), // Adjusts spacing below the header
   boxShadow: "0 0px 28px rgba(0,0,0,0.05)",
+  paddingTop: '10px',
+  paddingBottom: '10px'
 });
 
 const ProfileInfo = styled(Box)({
-  marginLeft: theme.spacing(2),
+  marginLeft: theme.spacing(1),
 });
 
 const Navigation = styled(Box)({

@@ -1,6 +1,6 @@
-import { Box, Container } from "@mui/material";
-import React, { useState } from "react";
-import GroupAddRoundedIcon from '@mui/icons-material/GroupAddRounded';
+import {Box, Container} from "@mui/material";
+import React, {useState} from "react";
+import GroupAddRoundedIcon from "@mui/icons-material/GroupAddRounded";
 import {
   Table,
   TableBody,
@@ -34,10 +34,8 @@ import {
 
 import patientsData from "../../data/patients.json";
 import AddNewPatient from "../../components/AddNewPatient";
-import styled from 'styled-components';
-import { Patient } from './../../types';
-
-
+import styled from "styled-components";
+import {Patient} from "./../../types";
 
 const Patients = () => {
   const [patients, setPatients] = useState<Patient[]>(patientsData);
@@ -60,7 +58,7 @@ const Patients = () => {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelecteds = patients.map((n) => n.lastName);
+      const newSelecteds = patients.map(n => n.lastName);
       setSelected(newSelecteds);
       return;
     }
@@ -80,7 +78,7 @@ const Patients = () => {
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(
         selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
+        selected.slice(selectedIndex + 1),
       );
     }
 
@@ -92,7 +90,7 @@ const Patients = () => {
   };
 
   const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
@@ -115,7 +113,7 @@ const Patients = () => {
   };
 
   const handleDelete = (name: string) => {
-    setPatients(patients.filter((patient) => patient.lastName !== name));
+    setPatients(patients.filter(patient => patient.lastName !== name));
     setSelected([]);
   };
 
@@ -140,12 +138,12 @@ const Patients = () => {
   };
 
   const filteredPatients = patients.filter(
-    (patient) =>
+    patient =>
       (patient.firstName.toLowerCase().includes(filter.toLowerCase()) ||
         patient.lastName.toLowerCase().includes(filter.toLowerCase()) ||
         patient.condition.toLowerCase().includes(filter.toLowerCase()) ||
         patient.diagnosis.toLowerCase().includes(filter.toLowerCase())) &&
-      (filterStatus === "" || patient.status === filterStatus)
+      (filterStatus === "" || patient.status === filterStatus),
   );
 
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
@@ -159,234 +157,229 @@ const Patients = () => {
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    max-width: 1700px;
+    min-width: 80%;
     margin: 20px auto;
   `;
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{display: "flex"}}>
       <Container fixed>
-        <h1>Patients</h1>
-
         <ProfileContainer>
-        <Paper>
-          <Toolbar>
-            {selected.length > 0 ? (
-              <Typography
-                sx={{ flex: "1 1 100%" }}
-                color="inherit"
-                variant="subtitle1"
-                component="div"
-              >
-                {selected.length} selected
-                <IconButton onClick={() => handleDelete(selected[0])}>
-                  <DeleteIcon />
-                </IconButton>
-              </Typography>
-            ) : (
-              <Typography
-                sx={{ flex: "1 1 100%" }}
-                variant="h6"
-                id="tableTitle"
-                component="div"
-              >
-                Patients
-              </Typography>
-            )}
-            <TextField
-              label="Search"
-              value={filter}
-              sx={{  width: 220 }}
-              onChange={handleFilterChange}
-            />
-            <FormControl sx={{ ml: 2, minWidth: 120}} >
-              <InputLabel>Status</InputLabel>
-              <Select
-                value={filterStatus}
-                onChange={handleFilterStatusChange}
-                label="Status"
-                sx={{  width: 120 }}
-              >
-                <MenuItem value="">
-                  <em>All</em>
-                </MenuItem>
-                <MenuItem value="new patient">New Patient</MenuItem>
-                <MenuItem value="active">Active</MenuItem>
-                <MenuItem value="non-active">Non-active</MenuItem>
-              </Select>
-            </FormControl>
-            <Button
-              variant="outlined"
-              color="primary"
-              startIcon={<GroupAddRoundedIcon />}
-              sx={{ ml: 2, width: 500 }}
-              onClick={handleModalOpen}
-            >
-              Add Patient
-            </Button>
-            <Button
-              variant="outlined"
-              color="secondary"
-              startIcon={<GroupAddRoundedIcon />}
-              sx={{ ml: 2, width: 500 }}
-              onClick={handleDrawerOpen}
-            >
-              Add Patient
-            </Button>
-          </Toolbar>
-          <TableContainer>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell padding="checkbox">
-                    <Checkbox
-                      indeterminate={
-                        selected.length > 0 && selected.length < patients.length
-                      }
-                      checked={
-                        patients.length > 0 &&
-                        selected.length === patients.length
-                      }
-                      onChange={handleSelectAllClick}
-                    />
-                  </TableCell>
-                  {[
-                    "firstName",
-                    "lastName",
-                    "age",
-                    "dob",
-                    "lastVisited",
-                    "gender",
-                    "condition",
-                    "diagnosis",
-                    "status",
-                  ].map((column) => (
-                    <TableCell
-                      key={column}
-                      sortDirection={orderBy === column ? order : false}
-                    >
-                      <TableSortLabel
-                        active={orderBy === column}
-                        direction={orderBy === column ? order : "asc"}
-                        onClick={() =>
-                          handleRequestSort(column as keyof Patient)
+          <Paper>
+            <Toolbar>
+              {selected.length > 0 ? (
+                <Typography
+                  sx={{flex: "1 1 100%"}}
+                  color="inherit"
+                  variant="subtitle1"
+                  component="div">
+                  {selected.length} selected
+                  <IconButton onClick={() => handleDelete(selected[0])}>
+                    <DeleteIcon />
+                  </IconButton>
+                </Typography>
+              ) : (
+                <Typography
+                  sx={{flex: "1 1 100%"}}
+                  variant="h5"
+                  id="tableTitle"
+                  component="div">
+                  Patients
+                </Typography>
+              )}
+              <TextField
+                label="Search"
+                value={filter}
+                sx={{
+                  ".css-x2l1vy-MuiInputBase-root-MuiOutlinedInput-root": {
+                    color: "white",
+                    width:"70%"
+                  },
+                }}
+                InputLabelProps={{
+                  style: { color: "white" },
+                }}
+                onChange={handleFilterChange}
+              />
+              <FormControl sx={{ml: 2, minWidth: 120}}>
+                <InputLabel>Status</InputLabel>
+                <Select
+                  value={filterStatus}
+                  onChange={handleFilterStatusChange}
+                  label="Status"
+                  sx={{width: 120}}>
+                  <MenuItem value="">
+                    <em>All</em>
+                  </MenuItem>
+                  <MenuItem value="new patient">New Patient</MenuItem>
+                  <MenuItem value="active">Active</MenuItem>
+                  <MenuItem value="non-active">Non-active</MenuItem>
+                </Select>
+              </FormControl>
+              <Button
+                variant="outlined"
+                color="primary"
+                startIcon={<GroupAddRoundedIcon />}
+                sx={{ml: 2, width: 500}}
+                onClick={handleModalOpen}>
+                Add Patient
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                startIcon={<GroupAddRoundedIcon />}
+                sx={{ml: 2, width: 500}}
+                onClick={handleDrawerOpen}>
+                Add Patient
+              </Button>
+            </Toolbar>
+            <TableContainer>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell padding="checkbox">
+                      <Checkbox
+                        indeterminate={
+                          selected.length > 0 &&
+                          selected.length < patients.length
                         }
-                      >
-                        {column === "firstName"
-                          ? "First Name"
-                          : column === "lastName"
-                          ? "Last Name"
-                          : column === "dob"
-                          ? "Date of Birth"
-                          : column === "lastVisited"
-                          ? "Last Visited"
-                          : column.charAt(0).toUpperCase() + column.slice(1)}
-                      </TableSortLabel>
+                        checked={
+                          patients.length > 0 &&
+                          selected.length === patients.length
+                        }
+                        onChange={handleSelectAllClick}
+                      />
                     </TableCell>
-                  ))}
-                  <TableCell />
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {filteredPatients
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((patient, index) => {
-                    const isItemSelected = isSelected(patient.lastName);
-                    return (
-                      <TableRow
-                        hover
-                        onClick={(event) =>
-                          handleClick(event, patient.lastName)
-                        }
-                        role="checkbox"
-                        aria-checked={isItemSelected}
-                        tabIndex={-1}
-                        key={patient.lastName}
-                        selected={isItemSelected}
-                      >
-                        <TableCell padding="checkbox">
-                          <Checkbox checked={isItemSelected} />
-                        </TableCell>
-                        <TableCell>{patient.firstName}</TableCell>
-                        <TableCell>{patient.lastName}</TableCell>
-                        <TableCell>{patient.age}</TableCell>
-                        <TableCell>{patient.dob}</TableCell>
-                        <TableCell>{patient.lastVisited}</TableCell>
-                        <TableCell>{patient.gender}</TableCell>
-                        <TableCell>{patient.condition}</TableCell>
-                        <TableCell>{patient.diagnosis}</TableCell>
-                        <TableCell>{patient.status}</TableCell>
-                        <TableCell padding="checkbox">
-                          <IconButton onClick={handleMenuClick}>
-                            <MoreVertIcon />
-                          </IconButton>
-                          <Menu
-                            anchorEl={anchorEl}
-                            keepMounted
-                            open={Boolean(anchorEl)}
-                            onClose={handleMenuClose}
-                          >
-                            <MenuItem onClick={() => console.log("Edit")}>
-                              Edit
-                            </MenuItem>
-                            <MenuItem
-                              onClick={() => handleDelete(patient.lastName)}
-                            >
-                              Delete
-                            </MenuItem>
-                          </Menu>
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-                {emptyRows > 0 && (
-                  <TableRow style={{ height: 53 * emptyRows }}>
-                    <TableCell colSpan={6} />
+                    {[
+                      "firstName",
+                      "lastName",
+                      "age",
+                      "dob",
+                      "lastVisited",
+                      "gender",
+                      "condition",
+                      "diagnosis",
+                      "status",
+                    ].map(column => (
+                      <TableCell
+                        key={column}
+                        sortDirection={orderBy === column ? order : false}>
+                        <TableSortLabel
+                          active={orderBy === column}
+                          direction={orderBy === column ? order : "asc"}
+                          onClick={() =>
+                            handleRequestSort(column as keyof Patient)
+                          }>
+                          {column === "firstName"
+                            ? "First Name"
+                            : column === "lastName"
+                              ? "Last Name"
+                              : column === "dob"
+                                ? "Date of Birth"
+                                : column === "lastVisited"
+                                  ? "Last Visited"
+                                  : column.charAt(0).toUpperCase() +
+                                    column.slice(1)}
+                        </TableSortLabel>
+                      </TableCell>
+                    ))}
+                    <TableCell />
                   </TableRow>
-                )}
-              </TableBody>
-            </Table>
-          </TableContainer>
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 25]}
-            component="div"
-            count={filteredPatients.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-          <AddNewPatient
-            open={drawerOpen}
-            onClose={handleDrawerClose}
-            onAddPatient={handleAddPatient}
-          />
-          <Modal
-            open={openModal}
-            onClose={handleModalClose}
-            aria-labelledby="simple-modal-title"
-            aria-describedby="simple-modal-description"
-          >
-            <div
-              style={{
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                position: "absolute",
-                backgroundColor: "white",
-                padding: "16px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              <h2 id="simple-modal-title">Add New Patient</h2>
-              <p id="simple-modal-description">
-                Form for adding a new patient goes here.
-              </p>
-            </div>
-          </Modal>
-        </Paper>
+                </TableHead>
+                <TableBody>
+                  {filteredPatients
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((patient, index) => {
+                      const isItemSelected = isSelected(patient.lastName);
+                      return (
+                        <TableRow
+                          hover
+                          onClick={event =>
+                            handleClick(event, patient.lastName)
+                          }
+                          role="checkbox"
+                          aria-checked={isItemSelected}
+                          tabIndex={-1}
+                          key={patient.lastName}
+                          selected={isItemSelected}>
+                          <TableCell padding="checkbox">
+                            <Checkbox checked={isItemSelected} />
+                          </TableCell>
+                          <TableCell>{patient.firstName}</TableCell>
+                          <TableCell>{patient.lastName}</TableCell>
+                          <TableCell>{patient.age}</TableCell>
+                          <TableCell>{patient.dob}</TableCell>
+                          <TableCell>{patient.lastVisited}</TableCell>
+                          <TableCell>{patient.gender}</TableCell>
+                          <TableCell>{patient.condition}</TableCell>
+                          <TableCell>{patient.diagnosis}</TableCell>
+                          <TableCell>{patient.status}</TableCell>
+                          <TableCell padding="checkbox">
+                            <IconButton onClick={handleMenuClick}>
+                              <MoreVertIcon />
+                            </IconButton>
+                            <Menu
+                              anchorEl={anchorEl}
+                              keepMounted
+                              open={Boolean(anchorEl)}
+                              onClose={handleMenuClose}>
+                              <MenuItem onClick={() => console.log("Edit")}>
+                                Edit
+                              </MenuItem>
+                              <MenuItem
+                                onClick={() => handleDelete(patient.lastName)}>
+                                Delete
+                              </MenuItem>
+                            </Menu>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  {emptyRows > 0 && (
+                    <TableRow style={{height: 53 * emptyRows}}>
+                      <TableCell colSpan={6} />
+                    </TableRow>
+                  )}
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25]}
+              component="div"
+              count={filteredPatients.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+            <AddNewPatient
+              open={drawerOpen}
+              onClose={handleDrawerClose}
+              onAddPatient={handleAddPatient}
+            />
+            <Modal
+              open={openModal}
+              onClose={handleModalClose}
+              aria-labelledby="simple-modal-title"
+              aria-describedby="simple-modal-description">
+              <div
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  position: "absolute",
+                  backgroundColor: "white",
+                  padding: "16px",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                }}>
+                <h2 id="simple-modal-title">Add New Patient</h2>
+                <p id="simple-modal-description">
+                  Form for adding a new patient goes here.
+                </p>
+              </div>
+            </Modal>
+          </Paper>
         </ProfileContainer>
       </Container>
-
     </Box>
   );
 };
