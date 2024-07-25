@@ -41,7 +41,8 @@ const routes: Route[] = [
   {
     path: '/Patients',
     name: 'Patients',
-    icon: <img width="28" height="28" src={PatientsIcon} alt="Home Icon" />,
+    // icon: <img width="28" height="28" src={PatientsIcon} alt="Home Icon" />,
+    icon: <PeopleAltRoundedIcon color="disabled" fontSize="small"/>,
     component: Patients,
   },
   {

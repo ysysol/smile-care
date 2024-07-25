@@ -58,6 +58,7 @@ import ToothImages from "../../data/ToothUpperImagesData";
 import avatarImage from "../../assets/images/avatars/2017-06-24_133243.png"; // Make sure this path is correct
 
 import "../TeethChart/teethChart.css";
+import Spinner from "../../components/Spinner/Spinner";
 const theme = createTheme();
 
 const HeaderAvatar = styled(Box)({
@@ -67,10 +68,10 @@ const HeaderAvatar = styled(Box)({
   backgroundColor: "#fff",
   // borderBottom: "1px solid #ddd",
   borderRadius: "18px", // Added for rounded corners
-  marginBottom: theme.spacing(2), // Adjusts spacing below the header
+  marginBottom: theme.spacing(1), // Adjusts spacing below the header
   boxShadow: "0 0px 28px rgba(0,0,0,0.05)",
-  paddingTop: '10px',
-  paddingBottom: '10px'
+  paddingTop: '8px',
+  paddingBottom: '8px'
 });
 
 const ProfileInfo = styled(Box)({
@@ -78,7 +79,7 @@ const ProfileInfo = styled(Box)({
 });
 
 const Navigation = styled(Box)({
-  marginTop: theme.spacing(2),
+  marginTop: theme.spacing(1),
   marginLeft: theme.spacing(14),
   borderBottom: "0px solid #ddd",
   fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', // Add the font family here
@@ -95,7 +96,7 @@ const MainContent = styled(Paper)({
   display: "flex",
   flexDirection: "column",
   width: "120%", // Increase the width
-  height: "590px",
+  height: "540px",
   margin: "0 auto", // Center align within the parent container
 });
 
@@ -106,11 +107,11 @@ const DentalChart = styled(Box)({
   gap: theme.spacing(2),
   justifyContent: "center",
   width: "100%",
-  minHeight: "400px",
+  minHeight: "370px",
   padding: theme.spacing(2),
 });
 
-const teethBottonsChart = {
+const MainContentBottons = {
   margin: theme.spacing(1),
   marginRight: "10px",
   backgroundColor: "white",
@@ -149,7 +150,7 @@ const TeethChart = () => {
         <HeaderAvatar>
           <Avatar
             alt="Julia Smith"
-            style={{width: "10%", height: "10%", marginRight: "10px"}}
+            className="mui-avatar-heading-img"
             src={avatarImage}
           />
           <ProfileInfo>
@@ -199,10 +200,10 @@ const TeethChart = () => {
                 <img
                   src={ToothCareIcon}
                   alt="Lab Icon"
-                  style={{height: "30px"}}
+                  style={{ height: "30px"}}
                 />
               }
-              sx={{textTransform: "capitalize"}}
+              sx={{fontSize:'12px', textTransform: "capitalize"}}
             />
             <Tab
               label="Ledger"
@@ -270,27 +271,27 @@ const TeethChart = () => {
             marginBottom={1}>
             {/* <Typography>Charts</Typography> */}
             <Box sx={{marginLeft: theme.spacing(12)}}>
-              <Button variant="contained" sx={teethBottonsChart}>
+              <Button variant="contained" sx={MainContentBottons}>
                 Quick Select
               </Button>
-              <Button variant="contained" sx={teethBottonsChart}>
+              <Button variant="contained" sx={MainContentBottons}>
                 Quick Select
               </Button>
-              <Button variant="contained" sx={teethBottonsChart}>
+              <Button variant="contained" sx={MainContentBottons}>
                 Periodontal Probing
               </Button>
             </Box>
             <Box>
-              <Button variant="contained" sx={teethBottonsChart}>
+              <Button variant="contained" sx={MainContentBottons}>
                 Dental
               </Button>
-              <Button variant="contained" sx={teethBottonsChart}>
+              <Button variant="contained" sx={MainContentBottons}>
                 Prio
               </Button>
-              <Button variant="contained" sx={teethBottonsChart}>
+              <Button variant="contained" sx={MainContentBottons}>
                 Endo
               </Button>
-              <Button variant="contained" sx={teethBottonsChart}>
+              <Button variant="contained" sx={MainContentBottons}>
                 All
               </Button>
             </Box>
@@ -508,5 +509,5 @@ const TeethChart = () => {
     </ThemeProvider>
   );
 };
-
+<Spinner/>
 export default TeethChart;

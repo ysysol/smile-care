@@ -4,9 +4,9 @@ const mockUsers = [
     {
       // email: 'test@example.com',
       // password: 'password123',
-      email: '654',
-      password: '654',
+      email: 'admin',
+      password: 'admin',
     },
   ];
-  
+
   export default mockUsers;

@@ -199,7 +199,7 @@ const MiniDrawer = () => {
               <ListItemButton
                 onClick={() => handleMenuClick(route.path)}
                 sx={{
-                  minHeight: 48,
+                  minHeight: 2,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
@@ -219,8 +219,8 @@ const MiniDrawer = () => {
                 />
               </ListItemButton>
             </ListItem>
- {dividerIndices.includes(index) && <Divider />}
- 
+ {/* {dividerIndices.includes(index) && <Divider />} */}
+
  </React.Fragment>
 
           ))}

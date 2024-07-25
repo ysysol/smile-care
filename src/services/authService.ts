@@ -1,13 +1,13 @@
 // src/services/authService.ts
 
-// import mockUsers from '../services/mockUsers';
+ import mockUsers from '../services/mockUsers';
 
 // export const login = async (email: string, password: string) => {
 //   const user = mockUsers.find((user) => user.email === email && user.password === password);
 //   if (!user) {
 //     throw new Error('Invalid email or password');
 //   }
-  
+
 //   // Simulate storing a token (for the sake of the example, we'll just store a mock token)
 //   localStorage.setItem('token', 'mock-token');
 // };
@@ -53,16 +53,29 @@
 interface User {
     token: string | null;
   }
-  
+
   export const getCurrentUser = (): User => {
     // Mock implementation for demonstration
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : { token: null };
   };
-  
-  export const login = (email: string, password: string): Promise<void> => {
+
+  // export const login = (email: string, password: string): Promise<void> => {
+  //   return new Promise((resolve, reject) => {
+  //     if (email === 'admin' && password === 'admin') {
+  //       localStorage.setItem('user', JSON.stringify({ token: 'mock-token' }));
+  //       resolve();
+  //     } else {
+  //       reject('Invalid credentials');
+  //     }
+  //   });
+  // };
+ export const login = (email: string, password: string): Promise<void> => {
     return new Promise((resolve, reject) => {
-      if (email === 'admin' && password === 'admin') {
+      const user = mockUsers.find((user) => user.email === email && user.password === password);
+
+
+      if (user) {
         localStorage.setItem('user', JSON.stringify({ token: 'mock-token' }));
         resolve();
       } else {
@@ -70,8 +83,6 @@ interface User {
       }
     });
   };
-  
   export const logout = (): void => {
     localStorage.removeItem('user');
   };
-  
